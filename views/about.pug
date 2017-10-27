@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1.page-header #{title}
+  each contact, i in contacts
+    p!= contact.body
+    hr
+    if user
+      if user.id ==contact.author
+        a.btn.btn-default(href='/contacts/edit/' + contact._id)
+          span.glyphicon.glyphicon-edit 
+          |  Редагувати
+        a.btn.btn-danger.delete-contact(href='#' data-id=contact._id)
+          span.glyphicon.glyphicon-remove
+          |  Видалити

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  each home, i in homepage
+    p!= home.body
+    hr
+    if user
+      if user.id ==home.author
+        a.btn.btn-default(href='/homepage/edit/' + home._id)
+          span.glyphicon.glyphicon-edit 
+          |  Редагувати
+        a.btn.btn-danger.delete-home(href='#' data-id=home._id)
+          span.glyphicon.glyphicon-remove
+          |  Видалити

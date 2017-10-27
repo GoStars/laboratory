@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1.page-header #{title}
+  form(method='POST' action='/researchers/edit/' + researcher._id)
+    #form-group
+      label Заголовок:
+      input.form-control(name='title' type='text' value=researcher.title)
+    #form-group
+      label Автор:
+      input.form-control(name='author' type='text' value=researcher.author)
+    #form-group
+      label Тіло:
+      textarea.form-control(name='body' id='editor')= researcher.body
+    br
+    input.btn.btn-primary(type='submit' value='Відправити')

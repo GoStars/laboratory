@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h3.page-header= researcher.title
+  h5 Написав #{author}
+  p!= researcher.body
+  hr
+  if user
+    if user.id ==researcher.author
+      a.btn.btn-default(href='/researchers/edit/' + researcher._id)
+        span.glyphicon.glyphicon-edit 
+        |  Редагувати
+      a.btn.btn-danger.delete-researcher(href='#' data-id=researcher._id)
+        span.glyphicon.glyphicon-remove
+        |  Видалити

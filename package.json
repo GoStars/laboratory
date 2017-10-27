@@ -1,0 +1,41 @@
+{
+  "name": "laboratory",
+  "version": "1.0.0",
+  "description": "Research Laboratory",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "GoStars",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.0",
+    "content-filter": "^1.1.1",
+    "express": "^4.15.3",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.3",
+    "express-validator": "^3.2.0",
+    "mongoose": "^4.10.4",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.0-rc.2"
+  },
+  "engines": {
+    "node": "8.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoStars/laboratory.git"
+  },
+  "keywords": [
+    "Research",
+    "Laboratory"
+  ],
+  "bugs": {
+    "url": "https://github.com/GoStars/laboratory/issues"
+  },
+  "homepage": "https://github.com/GoStars/laboratory#readme"
+}

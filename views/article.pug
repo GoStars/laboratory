@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h3.page-header= article.title
+  h5 Написав #{author}
+  p!= article.body
+  hr
+  if user
+    if user.id ==article.author
+      a.btn.btn-default(href='/articles/edit/' + article._id)
+        span.glyphicon.glyphicon-edit 
+        |  Редагувати
+      a.btn.btn-danger.delete-article(href='#' data-id=article._id)
+        span.glyphicon.glyphicon-remove
+        |  Видалити

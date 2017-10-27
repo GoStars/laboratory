@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1.page-header #{title}
+  ul.list-group
+    each direction, i in directions
+      li.list-group-item
+        a.newsLinks(href='/directions/' + direction._id)= direction.title

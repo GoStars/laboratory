@@ -1,0 +1,96 @@
+doctype html
+html(lang='ua')
+  head
+    title Науково-дослідна лабораторія
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(name='description' content='НДЛ ММПЗІСМ створена у 2011 році і проводить наукові дослідження з актуальної проблематики моделювання, математичного та програмного забезпечення інформаційних систем та мереж.')
+    link(
+      rel='stylesheet' 
+      href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+    )  
+    link(rel='stylesheet' href='/css/style.css')
+  body
+    nav.navbar.navbar-inverse
+      .container-fluid
+        a.navbar-brand(href='/') Науково-дослідна лабораторія "Моделювання, матемтичного та програмного забезпечення інформаційних системи та мереж"
+        .navbar-header
+          button.navbar-toggle.collapsed(
+            type='button'
+            data-toggle='collapse'
+            data-target='#myNavbar'
+            aria-expanded='false' 
+            aria-controls='myNavbar'
+          )
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        .collapse.navbar-collapse(id="myNavbar")
+          ul.nav.navbar-nav
+            li
+              a(href='/')
+                span.glyphicon.glyphicon-home
+                |  Головна
+            if user
+              li
+                a(href='/homepage/add')
+                  span.glyphicon.glyphicon-plus
+                  |  Додати Опис
+            li
+              a(href='/news')
+                | Новини
+            if user
+              li
+                a(href='/articles/add')
+                  span.glyphicon.glyphicon-plus
+                  |  Додати новину
+            li
+              a(href='/direct') 
+                | Напрями досліджень
+            if user
+              li
+                a(href='/directions/add')
+                  span.glyphicon.glyphicon-plus
+                  |  Додати напрям дослідження
+            li
+              a(href='/research')
+                | Колектив дослідників
+            if user
+              li
+                a(href='/researchers/add')
+                  span.glyphicon.glyphicon-plus
+                  |  Додати дослідника
+            li
+              a(href='/about') 
+                | Контакти
+            if user
+              li
+                a(href='/contacts/add')
+                  span.glyphicon.glyphicon-plus
+                  |  Додати Контакти
+          ul.nav.navbar-nav.navbar-right
+            if user
+              li
+                a(href='/users/logout')
+                  span.glyphicon.glyphicon-log-out
+                  |  Вихід
+            else        
+              li
+                a(href='/users/login')
+                  span.glyphicon.glyphicon-log-in
+                  |  Вхід
+    .container
+      != messages('message', locals)
+      if errors
+        each error, i in errors
+          div(class='alert alert-danger') #{error.msg}
+      block content
+    footer.footer.text-center
+      p.text-muted Copyright 
+        <span class="glyphicon glyphicon-copyright-mark"></span> 2017
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='https://cdn.ckeditor.com/4.7.3/full/ckeditor.js')
+    script(src='/js/main.js')

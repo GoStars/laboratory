@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h3.page-header= direction.title
+  h5 Написав #{author}
+  p!= direction.body
+  hr
+  if user
+    if user.id ==direction.author
+      a.btn.btn-default(href='/directions/edit/' + direction._id)
+        span.glyphicon.glyphicon-edit 
+        |  Редагувати
+      a.btn.btn-danger.delete-direction(href='#' data-id=direction._id)
+        span.glyphicon.glyphicon-remove
+        |  Видалити

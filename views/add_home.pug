@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1.page-header #{title}
+  form(method='POST' action='/homepage/add')
+    #form-group
+      label Тіло:
+      textarea.form-control(name='body' id='editor')
+    br
+    input.btn.btn-primary(type='submit' value='Відправити')
